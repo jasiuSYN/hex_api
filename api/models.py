@@ -39,7 +39,7 @@ class User(AbstractBaseUser):
     objects = UserManager()
 
     def __str__(self):
-        return f"{self.name} {self.tier}"
+        return f"{self.username} {self.tier}"
 
 
 class Image(models.Model):
