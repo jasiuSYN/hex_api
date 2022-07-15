@@ -1,3 +1,4 @@
+from django.contrib.auth.models import AbstractBaseUser, UserManager
 from django.core.validators import FileExtensionValidator
 from django.db import models
 
@@ -26,9 +27,16 @@ class Tier(models.Model):
         return self.tier_name
 
 
-class User(models.Model):
-    name = models.CharField(max_length=200, unique=True)
-    tier = models.ForeignKey(Tier, on_delete=models.CASCADE)
+class User(AbstractBaseUser):
+    username = models.CharField(max_length=50, unique=True)
+    password = None
+    last_login = None
+    tier = models.ForeignKey(
+        Tier,
+        on_delete=models.CASCADE,
+    )
+    USERNAME_FIELD = "username"
+    objects = UserManager()
 
     def __str__(self):
         return f"{self.name} {self.tier}"
