@@ -9,7 +9,6 @@
 To run this project:
 
 ```
-
 1. Open project in IDE
 2. Type in terminal 'docker-compose up'
 3. Open new terminal and type 'docker ps'
@@ -17,5 +16,4 @@ To run this project:
 5. Type 'docker exec -it {id} bash'
 6. Type python manage.py migrate
 7. Open browser, paste http://0.0.0.0:8000/
-
 ```
